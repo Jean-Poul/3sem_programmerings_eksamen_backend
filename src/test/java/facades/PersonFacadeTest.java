@@ -53,7 +53,7 @@ public class PersonFacadeTest {
     public void setUp() {
         EntityManager em = emf.createEntityManager();
         try {
-//            Delete existing users and roles to get a "fresh" database
+//Delete existing users and roles to get a "fresh" database
             em.getTransaction().begin();
             em.createQuery("delete from Person").executeUpdate();
             em.createQuery("delete from Role").executeUpdate();
