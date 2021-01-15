@@ -6,8 +6,6 @@ nb-configuration.xml
 /src/main/java/utils/SetupTestUsers.java
 /nbproject/
 
-/src/main/java/security/SharedSecret.java
-/src/main/resources/META-INF/persistence.xml
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/netbeans,windows,macos,intellij,visualstudiocode
