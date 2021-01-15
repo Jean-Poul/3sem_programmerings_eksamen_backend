@@ -1,6 +1,6 @@
 package facades;
 
-import dto.HobbyDTO;
+
 import dto.PersonDTO;
 import dto.PersonsDTO;
 import entities.Address;
@@ -11,9 +11,9 @@ import errorhandling.NotFoundException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import security.errorhandling.AuthenticationException;
+
 
 public class PersonFacade {
 
@@ -131,6 +131,7 @@ public class PersonFacade {
                 }
 
                 Hobby hobby = new Hobby("None", "none");
+
                 newPerson.addHobby(hobby);
 
                 em.getTransaction().begin();
