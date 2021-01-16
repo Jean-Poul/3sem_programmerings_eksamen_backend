@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Disabled;
 import security.errorhandling.AuthenticationException;
 import utils.EMF_Creator;
 
-//@Disabled
+@Disabled
 public class PersonResourceTest {
 
     private static final int SERVER_PORT = 7777;
