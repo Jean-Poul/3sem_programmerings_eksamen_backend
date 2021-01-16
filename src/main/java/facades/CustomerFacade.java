@@ -2,20 +2,12 @@ package facades;
 
 import dto.CustomerDTO;
 import dto.CustomersDTO;
-import dto.HobbyDTO;
-import dto.PersonDTO;
-import entities.Address;
-import entities.Booking;
 import entities.Customer;
-import entities.Hobby;
-import entities.Person;
 import entities.Role;
 import errorhandling.MissingInputException;
 import errorhandling.NotFoundException;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.TypedQuery;
 import security.errorhandling.AuthenticationException;
 import utils.EMF_Creator;
 

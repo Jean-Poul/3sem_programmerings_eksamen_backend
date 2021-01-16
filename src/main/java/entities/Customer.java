@@ -37,7 +37,6 @@ public class Customer implements Serializable {
     private String name;
     
     @Id
-    @Basic(optional = false)
     @NotNull
     @Column(name = "email", length = 20)
     private String email;
