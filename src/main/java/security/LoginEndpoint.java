@@ -10,12 +10,11 @@ import com.nimbusds.jose.JWSSigner;
 import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
-import facades.PersonFacade;
+import entities.Customer;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import entities.Person;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -24,6 +23,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import security.errorhandling.AuthenticationException;
 import errorhandling.NotFoundExceptionMapper;
+import facades.CustomerFacade;
 import javax.persistence.EntityManagerFactory;
 import utils.EMF_Creator;
 
@@ -32,7 +32,7 @@ public class LoginEndpoint {
 
   public static final int TOKEN_EXPIRE_TIME = 1000 * 60 * 30; //30 min
   private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
-  public static final PersonFacade USER_FACADE = PersonFacade.getPersonFacade(EMF);
+  public static final CustomerFacade USER_FACADE = CustomerFacade.getCustomerFacade(EMF);
   
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
@@ -43,7 +43,7 @@ public class LoginEndpoint {
     String password = json.get("password").getAsString();
 
     try {
-      Person user = USER_FACADE.getVeryfiedUser(username, password);
+      Customer user = USER_FACADE.getVeryfiedUser(username, password);
       String token = createToken(username, user.getRolesAsStrings());
       JsonObject responseJson = new JsonObject();
       responseJson.addProperty("username", username);
@@ -67,7 +67,7 @@ public class LoginEndpoint {
       res.append(",");
     }
     String rolesAsString = res.length() > 0 ? res.substring(0, res.length() - 1) : "";
-    String issuer = "CA3-gruppe-8";
+    String issuer = "jplm";
 
     JWSSigner signer = new MACSigner(SharedSecret.getSharedKey());
     Date date = new Date();

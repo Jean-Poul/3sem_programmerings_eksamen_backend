@@ -48,8 +48,6 @@ public class Person implements Serializable {
         @JoinColumn(name = "email", referencedColumnName = "email")}, inverseJoinColumns = {
         @JoinColumn(name = "id", referencedColumnName = "id")})
     @ManyToMany(cascade = CascadeType.PERSIST)
-
-    
     private List<Hobby> hobbyList;
 
     @Column(name = "phone", length = 11)

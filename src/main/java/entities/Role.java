@@ -24,7 +24,10 @@ public class Role implements Serializable {
     private String roleName;
 
     @ManyToMany(mappedBy = "roleList")
-    private List<Person> userList;
+    private List<Customer> userList;
+    
+//    @ManyToMany(mappedBy = "roleList")
+//    private List<Person> userList;
 
     public Role() {
     }
@@ -41,11 +44,19 @@ public class Role implements Serializable {
         this.roleName = roleName;
     }
 
-    public List<Person> getUserList() {
+    public List<Customer> getUserList() {
         return userList;
     }
 
-    public void setUserList(List<Person> userList) {
+    public void setUserList(List<Customer> userList) {
         this.userList = userList;
     }
+    
+//    public List<Person> getUserList() {
+//        return userList;
+//    }
+//
+//    public void setUserList(List<Person> userList) {
+//        this.userList = userList;
+//    }
 }
