@@ -35,7 +35,6 @@ public class CustomerFacadeTest {
     private Booking b1, b2, b3;
     private Creditcard card1, card2;
     private Hotel h1, h2, h3;
-    
 
     public CustomerFacadeTest() {
 
