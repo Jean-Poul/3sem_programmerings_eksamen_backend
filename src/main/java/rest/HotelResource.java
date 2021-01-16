@@ -41,11 +41,11 @@ public class HotelResource {
         return "{\"msg\":\"Hello from hotel\"}";
     }
 
-    @Path("/all")
-    @GET
-    @Produces({MediaType.APPLICATION_JSON})
-    public Response getNextLaunches() throws IOException, NotFoundException {
-        HotelDTO hDTO = FACADE.getHotel();
-        return Response.ok(hDTO.getId()).build();
-    }
+//    @Path("/all")
+//    @GET
+//    @Produces({MediaType.APPLICATION_JSON})
+//    public Response getNextLaunches() throws IOException, NotFoundException {
+//        HotelDTO hDTO = FACADE.getHotel();
+//        return Response.ok(hDTO.getId()).build();
+//    }
 }

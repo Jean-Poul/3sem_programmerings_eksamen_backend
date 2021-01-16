@@ -27,21 +27,21 @@ public class HotelFacade {
         return instance;
     }
     
-    public HotelDTO getHotel() throws NotFoundException, IOException{
-        EntityManager em = emf.createEntityManager();
-        
-        try {
-            HotelFetcher hotelFetcher = new HotelFetcher();
-            String json = hotelFetcher.getAllHotelsJson();
-            HotelDTO hDTO = new HotelDTO(new Hotel(json));
-            if (json == null) {
-                throw new NotFoundException("No hotels were found");
-            }
-            
-            return hDTO;
-        } finally {
-            em.close();
-        }
-    }
+//    public HotelDTO getHotel() throws NotFoundException, IOException{
+//        EntityManager em = emf.createEntityManager();
+//        
+//        try {
+//            HotelFetcher hotelFetcher = new HotelFetcher();
+//            String json = hotelFetcher.getAllHotelsJson();
+//            HotelDTO hDTO = new HotelDTO(new Hotel(json));
+//            if (json == null) {
+//                throw new NotFoundException("No hotels were found");
+//            }
+//            
+//            return hDTO;
+//        } finally {
+//            em.close();
+//        }
+//    }
     
 }
