@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
 import security.errorhandling.AuthenticationException;
 
 //Uncomment the line below, to temporarily disable this test
-//@Disabled
+@Disabled
 public class PersonFacadeTest {
 
     private static EntityManagerFactory emf;
