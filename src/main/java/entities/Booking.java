@@ -38,6 +38,10 @@ public class Booking implements Serializable {
     @JoinColumn(name = "customer_id")
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Customer customer;
+    
+    @JoinColumn(name = "hotel_id")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Hotel hotel;
 
     public Booking() {
     }
@@ -87,5 +91,15 @@ public class Booking implements Serializable {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+    
+    
 
 }

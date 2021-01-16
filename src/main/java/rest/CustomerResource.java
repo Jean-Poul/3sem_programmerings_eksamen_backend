@@ -4,9 +4,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dto.CustomerDTO;
 import dto.CustomersDTO;
+import dto.HobbyDTO;
 import dto.PersonDTO;
 import entities.Customer;
 import entities.Person;
+import errorhandling.MissingInputException;
 import errorhandling.NotFoundException;
 import facades.CustomerFacade;
 import facades.PersonFacade;
@@ -114,8 +116,19 @@ public class CustomerResource {
     @Path("delete/{email}")
     @Produces({MediaType.APPLICATION_JSON})
     public String deleteCustomer(@PathParam("email") String email) throws NotFoundException {
-        CustomerDTO deleteCustomer = FACADE.deleteCustomer(email);
-        return GSON.toJson(deleteCustomer);
+        CustomerDTO customerDelete = FACADE.deleteCustomer(email);
+        return GSON.toJson(customerDelete);
+    }
+    
+    @PUT
+    @Path("update/{email}")
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    public String updateCustomer(@PathParam("email") String email, String customer) throws  MissingInputException, NotFoundException {
+        CustomerDTO customerDTO = GSON.fromJson(customer, CustomerDTO.class);
+        customerDTO.setEmail(email);
+        CustomerDTO customerNew = FACADE.editCustomer(customerDTO);
+        return GSON.toJson(customerNew);
     }
 
 }

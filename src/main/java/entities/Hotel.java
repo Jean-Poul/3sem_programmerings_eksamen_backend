@@ -2,11 +2,15 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -33,7 +37,7 @@ public class Hotel implements Serializable {
     private String hours;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String image;
     private String name;
     private String phone;
@@ -42,11 +46,14 @@ public class Hotel implements Serializable {
     private String tollfree;
     private String type;
     private String url;
+    
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "hotel")
+    private List<Booking> bookingList = new ArrayList<>();
 
     public Hotel() {
     }
 
-    public Hotel(String activity, String address, String alt, String checkin, String checkout, String content, String directions, String email, String fax, String geo, String hours, Long id, String image, String name, String phone, String price, String title, String tollfree, String type, String url) {
+    public Hotel(String activity, String address, String alt, String checkin, String checkout, String content, String directions, String email, String fax, String geo, String hours, int id, String image, String name, String phone, String price, String title, String tollfree, String type, String url) {
         this.activity = activity;
         this.address = address;
         this.alt = alt;
@@ -67,6 +74,13 @@ public class Hotel implements Serializable {
         this.tollfree = tollfree;
         this.type = type;
         this.url = url;
+    }
+    
+    public void addBooking(Booking booking) {
+        if (booking != null) {
+            bookingList.add(booking);
+            booking.setHotel(this);
+        }
     }
 
     public String getActivity() {
@@ -157,11 +171,11 @@ public class Hotel implements Serializable {
         this.hours = hours;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -229,5 +243,14 @@ public class Hotel implements Serializable {
         this.url = url;
     }
 
+    public List<Booking> getBookingList() {
+        return bookingList;
+    }
+
+    public void setBookingList(List<Booking> bookingList) {
+        this.bookingList = bookingList;
+    }
+
+    
     
 }

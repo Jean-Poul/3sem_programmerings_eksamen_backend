@@ -2,6 +2,7 @@ package facades;
 
 import dto.CustomerDTO;
 import dto.CustomersDTO;
+import dto.HobbyDTO;
 import dto.PersonDTO;
 import entities.Address;
 import entities.Booking;
@@ -9,12 +10,14 @@ import entities.Customer;
 import entities.Hobby;
 import entities.Person;
 import entities.Role;
+import errorhandling.MissingInputException;
 import errorhandling.NotFoundException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
 import security.errorhandling.AuthenticationException;
+import utils.EMF_Creator;
 
 public class CustomerFacade {
 
@@ -124,6 +127,7 @@ public class CustomerFacade {
         return new CustomerDTO(customer);
     }
     
+    
     public CustomerDTO deleteCustomer(String email) throws NotFoundException {
         EntityManager em = emf.createEntityManager();
         Customer customer = em.find(Customer.class, email);
@@ -140,6 +144,40 @@ public class CustomerFacade {
             }
             return new CustomerDTO(customer);
         }
+    }
+    
+     public CustomerDTO editCustomer(CustomerDTO c) throws  MissingInputException, NotFoundException {
+        if (isNameInValid(c.getName(), c.getEmail(), c.getPassword(), c.getPhone())) {
+            throw new MissingInputException("Name, email, password or phone is missing");
+        }
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            Customer customer = em.find(Customer.class, c.getEmail());
+            if (customer == null) {
+                throw new NotFoundException("No hobby with provided id found");
+            } else {
+                customer.setName(c.getName());
+                customer.setEmail(c.getEmail());
+                customer.setPassword(c.getPassword());
+                customer.setPhone(c.getPhone());
+            }
+            em.getTransaction().commit();
+            return new CustomerDTO(customer);
+        } finally {
+            em.close();
+        }
+    }
+     
+     private static boolean isNameInValid(String name, String email, String password, int phone) {
+        return (name.length() == 0) || (email.length() == 0) || (password.length() == 0) || (phone == 0);
+    }
+     
+     public static void main(String[] args) throws Exception {
+        EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
+        CustomerFacade cf = getCustomerFacade(EMF);
+        cf.deleteCustomer("email@test.dk");
+
     }
 
 }
