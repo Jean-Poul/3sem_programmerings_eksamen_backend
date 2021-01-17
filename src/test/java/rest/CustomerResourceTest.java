@@ -2,19 +2,16 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dto.CustomerDTO;
 import entities.Booking;
 import entities.Creditcard;
 import entities.Customer;
 import entities.Hotel;
 import entities.Role;
 import facades.CustomerFacade;
-import facades.PersonFacade;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
 import io.restassured.parsing.Parser;
 import java.net.URI;
-import javax.enterprise.inject.New;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.core.UriBuilder;
@@ -23,19 +20,15 @@ import org.glassfish.grizzly.http.util.HttpStatus;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.notNullValue;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Disabled;
-import static rest.PersonResourceTest.BASE_URI;
-import static rest.PersonResourceTest.startServer;
 import utils.EMF_Creator;
 
-//@Disabled
+@Disabled
 public class CustomerResourceTest {
 
     private static final int SERVER_PORT = 7777;

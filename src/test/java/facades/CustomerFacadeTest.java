@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Disabled;
 import utils.EMF_Creator;
 
-//@Disabled
+@Disabled
 public class CustomerFacadeTest {
 
     private static EntityManagerFactory emf;
