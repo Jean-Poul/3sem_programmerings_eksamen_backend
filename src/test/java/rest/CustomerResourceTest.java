@@ -258,85 +258,85 @@ public class CustomerResourceTest {
     /**
      * Test of getCustomerByEmail method, of class CustomerResource.
      */
-    @Disabled
-    public void testGetCustomerByEmail() throws Exception {
-        System.out.println("getCustomerByEmail");
-        String email = "";
-        CustomerResource instance = new CustomerResource();
-        String expResult = "";
-        String result = instance.getCustomerByEmail(email);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Disabled
+//    public void testGetCustomerByEmail() throws Exception {
+//        System.out.println("getCustomerByEmail");
+//        String email = "";
+//        CustomerResource instance = new CustomerResource();
+//        String expResult = "";
+//        String result = instance.getCustomerByEmail(email);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getAllCustomers method, of class CustomerResource.
      */
-    @Disabled
-    public void testGetAllCustomers() throws Exception {
-        System.out.println("getAllCustomers");
-        CustomerResource instance = new CustomerResource();
-        String expResult = "";
-        String result = instance.getAllCustomers();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testGetAllCustomers() throws Exception {
+//        System.out.println("getAllCustomers");
+//        CustomerResource instance = new CustomerResource();
+//        String expResult = "";
+//        String result = instance.getAllCustomers();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of addCustomer method, of class CustomerResource.
      */
-    @Disabled
-    public void testAddCustomer() throws Exception {
-        System.out.println("addCustomer");
-        String name = "Netbeans";
-        String email = "netbeans@email.com";
-        String password = "tester";
-        int phone = 12345678;
-        
-        Customer c4 = new Customer(name, email, password, phone);
-        CustomerDTO dto = new CustomerDTO(c4);
-        
-        given()
-                .contentType("application/json")
-                .body(dto)
-                .when()
-                .post("customer")
-                .then()
-                .statusCode(HttpStatus.OK_200.getStatusCode())
-                .body("name", equalTo("Netbeans"));
-    }
+//    @Test
+//    public void testAddCustomer() throws Exception {
+//        System.out.println("addCustomer");
+//        String name = "Netbeans";
+//        String email = "netbeans@email.com";
+//        String password = "tester";
+//        int phone = 12345678;
+//        
+//        Customer c4 = new Customer(name, email, password, phone);
+//        CustomerDTO dto = new CustomerDTO(c4);
+//        
+//        given()
+//                .contentType("application/json")
+//                .body(dto)
+//                .when()
+//                .post("customer")
+//                .then()
+//                .statusCode(HttpStatus.OK_200.getStatusCode())
+//                .body("name", equalTo("Netbeans"));
+//    }
 
     /**
      * Test of deleteCustomer method, of class CustomerResource.
      */
-    @Disabled
-    public void testDeleteCustomer() throws Exception {
-        System.out.println("deleteCustomer");
-        String email = "";
-        CustomerResource instance = new CustomerResource();
-        String expResult = "";
-        String result = instance.deleteCustomer(email);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testDeleteCustomer() throws Exception {
+//        System.out.println("deleteCustomer");
+//        String email = "";
+//        CustomerResource instance = new CustomerResource();
+//        String expResult = "";
+//        String result = instance.deleteCustomer(email);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of updateCustomer method, of class CustomerResource.
      */
-    @Disabled
-    public void testUpdateCustomer() throws Exception {
-        System.out.println("updateCustomer");
-        String email = "";
-        String customer = "";
-        CustomerResource instance = new CustomerResource();
-        String expResult = "";
-        String result = instance.updateCustomer(email, customer);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testUpdateCustomer() throws Exception {
+//        System.out.println("updateCustomer");
+//        String email = "";
+//        String customer = "";
+//        CustomerResource instance = new CustomerResource();
+//        String expResult = "";
+//        String result = instance.updateCustomer(email, customer);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
 }
