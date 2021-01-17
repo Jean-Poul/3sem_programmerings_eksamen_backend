@@ -1,6 +1,6 @@
 # CA3 quick start code: Backend Boilerplate
 
-(Insert travis URL)
+https://travis-ci.com/github/Jean-Poul/3sem_programmerings_eksamen_backend/builds
 
 <br>
 
@@ -74,10 +74,4 @@ In order to get started with the "Quick start code" you will need a [backend](ht
 5. (Extra) to deploy on surge run `surge --project ./build --domain A_DOMAIN_NAME.surge.sh`
 <br>
 
-**Thanks to the original boilerplate contributers**
 
-- [Alexander Pihl](https://github.com/AlexanderPihl)
-- [Jean-Poul Leth-Møller](https://github.com/Jean-Poul)
-- Mick Larsen (Me)
-- [Morten Rasmussen]()
-- [Per Kringelbach](https://github.com/cph-pk)
