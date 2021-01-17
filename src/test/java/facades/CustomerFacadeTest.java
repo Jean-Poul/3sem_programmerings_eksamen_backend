@@ -68,24 +68,7 @@ public class CustomerFacadeTest {
             card1 = new Creditcard("Visa", "12345678", "1/1-2022", "card name 1");
             card2 = new Creditcard("Master card", "87654321", "9/9-2023", "card name 2");
 
-//    private String activity;
-//    private String address;
-//    private String alt;
-//    private String checkin;
-//    private String checkout;
-//    private String content;
-//    private String directions;
-//    private String email;
-//    private String fax;
-//    private String hours;
-//    private String image;
-//    private String name;
-//    private String phone;
-//    private String price;
-//    private String title;
-//    private String tollfree;
-//    private String type;
-//    private String url;
+
             Hotel h1 = new Hotel("sleep", "Cwm Cadlan, Penderyn, CF44 0YJ", "alt", "checkin", "checkout",
                     "Fantastic little B&B with 3 rooms, all en-suite. Very comfortable beds, friendly hosts, delicious breakfasts. Ideally placed for waterfalls and mountains, Walkers and cyclists welcome.",
                     "From Penderyn, follow Cwm Cadlan road from Lamb Hotel for 1.5 miles, you'll see sign and yellow grit bin at the gate on your left.",
