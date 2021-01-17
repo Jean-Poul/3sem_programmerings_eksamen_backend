@@ -33,6 +33,7 @@ public class HotelResource {
     public String demo() {
         return "{\"msg\":\"Hello from hotel\"}";
     }
+    
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
