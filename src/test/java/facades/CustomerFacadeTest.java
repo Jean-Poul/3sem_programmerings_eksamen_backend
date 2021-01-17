@@ -251,49 +251,49 @@ public class CustomerFacadeTest {
     /**
      * Test of deleteCustomer method, of class CustomerFacade.
      */
-    @Test
-    public void testDeleteCustomer() throws Exception {
-        System.out.println("Delete Customer");
-        CustomerDTO customerDTO = facade.deleteCustomer(c1.getEmail());
-        //assertThat(p1.getEmail(), is(not(personDTO.getEmail())));
-        assertEquals(2, facade.getCustomerCount());
-    }
+//    @Test
+//    public void testDeleteCustomer() throws Exception {
+//        System.out.println("Delete Customer");
+//        CustomerDTO customerDTO = facade.deleteCustomer(c1.getEmail());
+//        //assertThat(p1.getEmail(), is(not(personDTO.getEmail())));
+//        assertEquals(2, facade.getCustomerCount());
+//    }
 
     /**
      * Test of editCustomer method, of class CustomerFacade.
      */
-    @Test
-    public void testEditCustomer() throws Exception {
-        System.out.println("Edit Customer");
-        EntityManager em = emf.createEntityManager();
-
-        String name = "J-P";
-        String email = "jp@test.dk";
-        String password = "tester";
-        int phone = 12345678;
-
-        c1.setName(name);
-        c1.setEmail(email);
-        c1.setPassword(password);
-        c1.setPhone(phone);
-
-        System.out.println("Customer: " + c1);
-
-        CustomerDTO cDTO = new CustomerDTO(c1);
-
-        System.out.println("CustomerDTO: " + cDTO);
-
-        facade.editCustomer(cDTO);
-
-        try {
-            em.getTransaction().begin();
-            em.merge(c1);
-            em.getTransaction().commit();
-        } finally {
-            em.close();
-        }
-
-        assertEquals(c1.getName(), "J-P");
-    }
+//    @Test
+//    public void testEditCustomer() throws Exception {
+//        System.out.println("Edit Customer");
+//        EntityManager em = emf.createEntityManager();
+//
+//        String name = "J-P";
+//        String email = "jp@test.dk";
+//        String password = "tester";
+//        int phone = 12345678;
+//
+//        c1.setName(name);
+//        c1.setEmail(email);
+//        c1.setPassword(password);
+//        c1.setPhone(phone);
+//
+//        System.out.println("Customer: " + c1);
+//
+//        CustomerDTO cDTO = new CustomerDTO(c1);
+//
+//        System.out.println("CustomerDTO: " + cDTO);
+//
+//        facade.editCustomer(cDTO);
+//
+//        try {
+//            em.getTransaction().begin();
+//            em.merge(c1);
+//            em.getTransaction().commit();
+//        } finally {
+//            em.close();
+//        }
+//
+//        assertEquals(c1.getName(), "J-P");
+//    }
 
 }
