@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Disabled;
 import utils.EMF_Creator;
 
-@Disabled
+//@Disabled
 public class CustomerFacadeTest {
 
     private static EntityManagerFactory emf;
@@ -122,11 +122,13 @@ public class CustomerFacadeTest {
 
             em.getTransaction().begin();
 
-            em.createQuery("DELETE FROM Hotel").executeUpdate();
-            em.createQuery("DELETE FROM Customer").executeUpdate();
+            
+            
             em.createQuery("DELETE FROM Booking").executeUpdate();
             em.createQuery("DELETE FROM Creditcard").executeUpdate();
             em.createQuery("DELETE FROM Role").executeUpdate();
+            em.createQuery("DELETE FROM Hotel").executeUpdate();
+            em.createQuery("DELETE FROM Customer").executeUpdate();
 
             System.out.println("HOTEL: " + h1);
             System.out.println("CREDITCARD: " + card1);
@@ -207,8 +209,8 @@ public class CustomerFacadeTest {
         List<CustomerDTO> list = customersDTO.getAll();
         System.out.println("Liste af personer: " + list);
         assertThat(list, everyItem(Matchers.hasProperty("email")));
-        assertThat(list, Matchers.hasItems(Matchers.<CustomerDTO>hasProperty("fullname", is("full name 1")),
-                Matchers.<CustomerDTO>hasProperty("phone", is("12345678"))
+        assertThat(list, Matchers.hasItems(Matchers.<CustomerDTO>hasProperty("name", is("full name 1")),
+                Matchers.<CustomerDTO>hasProperty("name", is("full name 2"))
         ));
 
     }
@@ -279,7 +281,7 @@ public class CustomerFacadeTest {
 
         CustomerDTO cDTO = new CustomerDTO(c1);
 
-        System.out.println("PersonDTO: " + cDTO);
+        System.out.println("CustomerDTO: " + cDTO);
 
         facade.editCustomer(cDTO);
 

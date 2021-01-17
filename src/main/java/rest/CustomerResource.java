@@ -4,14 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dto.CustomerDTO;
 import dto.CustomersDTO;
-import dto.HobbyDTO;
-import dto.PersonDTO;
 import entities.Customer;
-import entities.Person;
 import errorhandling.MissingInputException;
 import errorhandling.NotFoundException;
 import facades.CustomerFacade;
-import facades.PersonFacade;
 import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.persistence.EntityManager;
@@ -80,7 +76,7 @@ public class CustomerResource {
         try {
             TypedQuery<Customer> query = em.createQuery("SELECT c FROM Customer c", Customer.class);
             List<Customer> customer = query.getResultList();
-            return "Count of customers: " + "[" + customer.size() + "]";
+            return "[" + customer.size() + "]";
         } finally {
             em.close();
         }

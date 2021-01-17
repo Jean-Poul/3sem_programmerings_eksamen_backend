@@ -50,7 +50,7 @@ public class CustomerFacade {
         EntityManager em = emf.createEntityManager();
 
         try {
-            Long userCount = (Long) em.createQuery("SELECT COUNT(c) FROM Customer u").getSingleResult();
+            Long userCount = (Long) em.createQuery("SELECT COUNT(c) FROM Customer c").getSingleResult();
             return userCount;
         } finally {
             em.close();
@@ -122,6 +122,7 @@ public class CustomerFacade {
     
     public CustomerDTO deleteCustomer(String email) throws NotFoundException {
         EntityManager em = emf.createEntityManager();
+        
         Customer customer = em.find(Customer.class, email);
         
         if (customer == null) {
@@ -147,7 +148,7 @@ public class CustomerFacade {
             em.getTransaction().begin();
             Customer customer = em.find(Customer.class, c.getEmail());
             if (customer == null) {
-                throw new NotFoundException("No hobby with provided id found");
+                throw new NotFoundException("No customer with provided id found");
             } else {
                 customer.setName(c.getName());
                 customer.setEmail(c.getEmail());
